@@ -1,0 +1,38 @@
+/*
+ * OrderManagement.idl - Distributed Order Management Service IDL
+ */
+
+module OrderManagementApp {
+
+  // Struct to hold order details 
+  struct Order {
+    string username;
+    long chickenQuantity;
+    long colaQuantity;
+    double totalPrice;
+  };
+
+  interface OrderService {
+    // Returns the restaurant menu as a formatted string.
+    // For example: "Fried Chicken: $5, Cola: $1"
+    string getMenu();
+
+    // Places an order for a customer.
+    // Input: username, quantity of fried chicken, and quantity of cola.
+    // Output: A confirmation message (e.g., "Order received: Total $X")
+    string placeOrder(in string username, in long chickenQuantity, in long colaQuantity);
+
+    // Checks the order status for a given customer.
+    // Returns a status string with details (username, quantities, and total price)
+    // Throws an error if no order exists for the username.
+    string checkOrderStatus(in string username);
+
+    // For the manager role: returns all current orders as a formatted string.
+    string viewCurrentOrders();
+
+    // Handles manager connections
+    boolean managerLogin();
+    void managerDisconnect();
+
+  };
+};
