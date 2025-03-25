@@ -85,7 +85,7 @@ public class OrderClient {
                 boolean connectSuccess = !orderService.managerLogin();
                 if (connectSuccess) {
                     while (!done) {
-                        System.out.println("\nManager Customer:");
+                        System.out.println("\nManager Options:");
                         System.out.println("1. View Current Orders");
                         System.out.println("2. Quit");
                         System.out.print("Enter your choice: ");
